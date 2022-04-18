@@ -7,4 +7,4 @@ This app will allow organizers or groups to upload details of their car meet.  T
 https://salemcarmeet.herokuapp.com/
 
 
-This is just a sample site for personal my portfolio.
+
