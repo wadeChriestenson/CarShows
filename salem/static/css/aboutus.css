@@ -1,0 +1,10 @@
+.p-holder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+p{
+    margin-left: 25%;
+    width: 50%;
+    font-size: 24px;
+}
