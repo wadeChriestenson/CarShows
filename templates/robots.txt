@@ -1,0 +1,4 @@
+# Group 1 - Google
+User-Agent: Googlebot
+
+Disallow: /admin/

@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Wade Chriestenson">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salem Oregon Car Meet</title>
+    <link rel="icon" type="image/x-icon"  href="{%  static  '/img/favicon.png' %}'">
+    <script src="https://cdn.plot.ly/plotly-1.58.4.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="{% static '/css/header1.css' %}" rel="stylesheet">
+    <link href="{% static '/css/aboutus.css' %}" rel="stylesheet">
+
+
+</head>
+<body class="body">
+    <header class="header">
+        <img class="treeIcon" src="{% static '/img/pine.png' %}" alt="tree">
+        <h1>Salem Oregon Car Meet</h1>
+        <img class="carIcon" src="{% static '/img/location.png' %}" alt="carIcon">
+        <a href="http://www.djangoproject.com/"><img src="https://www.djangoproject.com/m/img/badges/djangomade124x25.gif" border="0" alt="Made with Django." title="Made with Django." style="  position: absolute; right: 0px;" /></a>
+    </header>
+    <div class="middleWrapper">
+        <div class="tabs">
+            <a href="/">Current Meets</a>
+            <a href="setup.html">Setup a Meet</a>
+{#            <a href="disclaimer.html">Disclaimer</a>#}
+        </div>
+        <div class="top">
+            <h2>About US</h2>
+        </div>
+        <div class="p-holder">
+            <p>{{ aboutus }}</p>
+        </div>
+        <h4>Contact Us</h4>
+        <p>Email: <a href="{{ email }}" target="_blank" style="font-size: 24px">salemcarmeet@gmail.com</a></p>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Wade Chriestenson">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salem Oregon Car Meet</title>
+    <link rel="icon" type="image/x-icon"  href="{%  static  '/img/favicon.png' %}'">
+    <script src="https://cdn.plot.ly/plotly-1.58.4.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/setup.css' %}"/>
+    <script src="{% static '/javascript/setup.js' %}" rel="script"></script>
+          <link href="{% static '/css/header1.css' %}" rel="stylesheet">
+  </head>
+<body>
+      <header class="header">
+          <a href="http://www.djangoproject.com/"><img src="https://www.djangoproject.com/m/img/badges/djangomade124x25.gif" border="0" alt="Made with Django." title="Made with Django." style="  position: absolute; right: 0px;" /></a>
+        <img class="treeIcon" src="{% static '/img/pine.png' %}" alt="tree">
+        <h1>Salem Oregon Car Meet</h1>
+        <img class="carIcon" src="{% static '/img/location.png' %}" alt="carIcon">
+    </header>
+  <div class="mainWrapper">
+    <div class="middleWrapper">
+        <div class="tabs">
+            <a href="/">Current Meets</a>
+{#            <a href="disclaimer.html">Disclaimer</a>#}
+            <a href="aboutus.html">About Us</a>
+        </div>
+                <div class="top">
+            <h2>Set Up A Meet</h2>
+        </div>
+        <div class="mapWrapper">
+    <div class="pac-card" id="pac-card">
+      <div>
+        <div id="title">Find a Location</div>
+        <div id="type-selector" class="pac-controls">
+          <input
+            type="radio"
+            name="type"
+            id="changetype-all"
+            checked="checked"
+          />
+          <label for="changetype-all">All</label>
+{##}
+{#          <input type="radio" name="type" id="changetype-establishment" />#}
+{#          <label for="changetype-establishment">establishment</label>#}
+{##}
+{#          <input type="radio" name="type" id="changetype-address" />#}
+{#          <label for="changetype-address">address</label>#}
+{##}
+{#          <input type="radio" name="type" id="changetype-geocode" />#}
+{#          <label for="changetype-geocode">geocode</label>#}
+{##}
+{#          <input type="radio" name="type" id="changetype-cities" />#}
+{#          <label for="changetype-cities">(cities)</label>#}
+{##}
+{#          <input type="radio" name="type" id="changetype-regions" />#}
+{#          <label for="changetype-regions">(regions)</label>#}
+        </div>
+        <br />
+{#        <div id="strict-bounds-selector" class="pac-controls">#}
+{#          <input type="checkbox" id="use-location-bias" value="" checked />#}
+{#          <label for="use-location-bias">Bias to map viewport</label>#}
+{##}
+{#          <input type="checkbox" id="use-strict-bounds" value="" />#}
+{#          <label for="use-strict-bounds">Strict bounds</label>#}
+{#        </div>#}
+      </div>
+      <div id="pac-container">
+        <input id="pac-input" type="text" placeholder="Enter a location" />
+      </div>
+    </div>
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <span id="place-name" class="title"></span><br />
+      <span id="place-address"></span>
+    </div>
+            <div class="directions">
+                <p> Search a location on map by using search bar.<img src="{% static '/img/arrow-left.png' %}" class="arrow" style="margin-left: 10px"></p>
+                <p style="color: red">Map must have a location marked on it for meet to be saved!!!</p>
+                <p style="margin-top: 10%">Once the location is marked on the map,
+                     complete the form<img src="{% static '/img/arrow-left.png' %}" class="arrow" style="transform: scaleX(-1); margin-left: 10px"></p>
+                <p style="margin-top: 10%">When both Items above are completed press the
+                    "Submit Meet Info" button.</p>
+                <img src="{% static '/img/arrow-left.png' %}" class="arrow" style="transform: rotate(270deg); margin-left: 50%">
+
+            </div>
+            <form action="redirect.html" method="post" class="formWrapper">
+                {% csrf_token %}
+                {{ form.as_table }}
+                <input type="submit" value="Submit Meet Info" class="submit">
+            </form>
+        </div>
+    </div>
+</div>
+{#     Async script executes immediately and must be after any DOM elements used in callback. #}
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=<Default>&callback=initMap&libraries=places&v=weekly"
+      async
+    ></script>
+  </body>
+</html>
